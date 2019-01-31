@@ -93,22 +93,22 @@ $app->post('/bot', function() use($app) {
       {
         $message = $thursday;
       }
-      else if((strpos($string, "понедельник" !== false) || (date("w") == 0)){
+      else if((strpos($string, "понедельник") !== false) || (getdate("wday") == 0)){
         $message = $monday;
       }
-      else if((strpos($string, "вторник") !== false) || (date("w") == 1)){
+      else if((strpos($string, "вторник") !== false) || (getdate("wday") == 1)){
         $message = $tuesday;
       }
-      else if((strpos($string, "среда") !== false) || (date("w") == 2)){
+      else if((strpos($string, "среда") !== false) || (getdate("wday") == 2)){
         $message = $wednesday;
       }
-      else if((strpos($string, "четверг") !== false) || (date("w") == 3)){
+      else if((strpos($string, "четверг") !== false) || (getdate("wday") == 3)){
         $message = $thursday;
       }
-      else if((strpos($string, "пятница") !== false) || (date("w") == 4)){
+      else if((strpos($string, "пятница") !== false) || (getdate("wday") == 4)){
         $message = $friday;
       }
-      else if((strpos($string, "суббота") !== false) || (date("w") == 5)){
+      else if((strpos($string, "суббота") !== false) || (getdate("wday") == 5)){
         $message = $saturday;
       }
       else if($string == "звонки"){
