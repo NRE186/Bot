@@ -20,10 +20,10 @@ $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
   
   if(!data) 
-    return "bad";
+    return "1";
 
   if($data->secret !== getenv('VK_SECRET') && $data->type !== 'comfirmation' )
-    return "bad";
+    return "2";
 
   switch($data->type)
   {
@@ -36,7 +36,7 @@ $app->post('/bot', function() use($app) {
   }
 
 
-  return "bad";
+  return "3";
 });
 
 $app->run();
