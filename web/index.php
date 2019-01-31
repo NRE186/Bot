@@ -21,7 +21,7 @@ $app->post('/bot', function() use($app) {
   
   if( !data ) 
     return;
-    
+
   switch( $data->type )
   {
     case 'confirmation':
@@ -29,7 +29,7 @@ $app->post('/bot', function() use($app) {
       break;
     case 'message_new':
       $request_params = array(
-        'random_id' => '123',
+        'random_id' => rand(0, 100000000000000000),
         'peer_id'    => $data->object->from_id,
         'message'    => 'Здорова',
         'access_token' => getenv('VK_TOKEN'),
