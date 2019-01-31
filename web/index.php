@@ -27,12 +27,12 @@ $app->post('/bot', function() use($app) {
 
   switch( $data->type )
   {
-    case 'comfirmation': 
+    case 'confirmation':
       return getenv('VK_CONFIRM');
       break;
-    
-    case 'message_new': 
-
+    case 'message_new':
+   
+   
       break;
   }
 
