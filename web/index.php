@@ -99,16 +99,16 @@ $app->post('/bot', function() use($app) {
       else if(strpos($string, "вторник") !== false){
         $message = $tuesday;
       }
-      else if(strpos($string, "среда") !== false){
+      else if(strpos($string, "среду") !== false){
         $message = $wednesday;
       }
       else if(strpos($string, "четверг") !== false){
         $message = $thursday;
       }
-      else if(strpos($string, "пятница") !== false){
+      else if(strpos($string, "пятницу") !== false){
         $message = $friday;
       }
-      else if(strpos($string, "суббота") !== false){
+      else if(strpos($string, "субботу") !== false){
         $message = $saturday;
       }
       else if($string == "звонки"){
