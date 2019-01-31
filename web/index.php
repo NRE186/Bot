@@ -37,12 +37,11 @@ $app->post('/bot', function() use($app) {
         'fourth' => 'Информатика У601 Назина Н.Б / - / Иностранный У508 Кузнецова С.В'
       );
 
-      $message = "
-      '1 - ' . $thursday[0] .'\n'
-      '2 - ' . $thursday[1] .'\n'
-      '3 - ' . $thursday[2] .'\n'
-      '4 - ' . $thursday[3] .'\n'
-      ";
+      $message = 
+      "1 -  $thursday[0] \n \$ 
+       2 -  $thursday[1] \n \$
+       3 -  $thursday[2] \n \$
+       4 -  $thursday[3] \n \$";
 
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
