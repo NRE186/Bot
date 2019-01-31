@@ -93,6 +93,24 @@ $app->post('/bot', function() use($app) {
       {
         $message = $thursday;
       }
+      else if(strpos($string, "понедельник") !== false){
+        $message = $monday;
+      }
+      else if(strpos($string, "вторник") !== false){
+        $message = $tuesday;
+      }
+      else if(strpos($string, "среда") !== false){
+        $message = $wednesday;
+      }
+      else if(strpos($string, "четверг") !== false){
+        $message = $thursday;
+      }
+      else if(strpos($string, "пятница") !== false){
+        $message = $friday;
+      }
+      else if(strpos($string, "суббота") !== false){
+        $message = $saturday;
+      }
       else if($string == "звонки"){
         $message = $timetable;
       }
@@ -101,11 +119,11 @@ $app->post('/bot', function() use($app) {
       }
       else{
         $message = "Неизвестная команда! Список доступных команд : 
-        Расписание - расписание на текущий день
-        Расписание на всю неделю 
-        Расписание на {день} - расписание на определенный день
-        Звонки - расписание звонков
-        Список команд - список команд";
+        Расписание - расписание на текущий день,
+        Расписание на {день} - расписание на определенный день,
+        Звонки - расписание звонков,
+        Расписание на всю неделю,
+        Список команд ";
       }
       
       $request_params = array(
