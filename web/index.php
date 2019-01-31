@@ -28,7 +28,10 @@ $app->post('/bot', function() use($app) {
       return getenv('VK_CONFIRM');
       break;
     case 'message_new':
-      $message = 'Ошибка';
+      $message = '
+      Ошибка
+      Возникли некоторые трудности :(
+      ';
 
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
