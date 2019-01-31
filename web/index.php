@@ -89,23 +89,26 @@ $app->post('/bot', function() use($app) {
 
       $string = mb_strtolower($data->object->text);
 
-      if((strpos($string, "понедельник") !== false) || (getdate("wday") == 0)){
+      if(strpos($string, "понедельник" !== false)){
         $message = $monday;
       }
-      else if((strpos($string, "вторник") !== false) || (getdate("wday") == 1)){
+      else if(strpos($string, "вторник" !== false)){
         $message = $tuesday;
       }
-      else if((strpos($string, "среда") !== false) || (getdate("wday") == 2)){
+      else if(strpos($string, "среда" !== false)){
         $message = $wednesday;
       }
-      else if((strpos($string, "четверг") !== false) || (getdate("wday") == 3)){
+      else if(strpos($string, "четверг" !== false)){
         $message = $thursday;
       }
-      else if((strpos($string, "пятница") !== false) || (getdate("wday") == 4)){
+      else if(strpos($string, "пятница" !== false)){
         $message = $friday;
       }
-      else if((strpos($string, "суббота") !== false) || (getdate("wday") == 5)){
+      else if(strpos($string, "суббота" !== false)){
         $message = $saturday;
+      }
+      else if(getdate("wday") == 3 && $string == "расписание"){
+        $message = $thursday;
       }
       else if($string == "звонки"){
         $message = $timetable;
