@@ -33,7 +33,7 @@ $app->post('/bot', function() use($app) {
     case 'message_new':
    
       $request_params = array(
-        'peer_id'    => $peer_id,
+        'peer_id'    => $data->object->from_id,
         'message'    => 'Здорова',
         'access_token' => getenv('VK_TOKEN'),
         'v' => '5.92'
