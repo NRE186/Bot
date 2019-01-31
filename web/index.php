@@ -30,18 +30,33 @@ $app->post('/bot', function() use($app) {
     case 'confirmation':
       return getenv('VK_CONFIRM');
       break;
-    case 'message_new':
-   
-      $request_params = array(
-        'from_id' => $data->object->from_id,
-        'message' => 'Тест',
-        'access_token' => getenv('VK_TOKEN'),
-        'v' => '5.92'
-      );
+
+      case 'message_new': 
+      //...получаем id его автора 
+      $user_id = $data->object->from_id; 
+      //затем с помощью users.get получаем данные об авторе 
+      $user_info = json_decode(file_get_contents("https://api.vk.com/method/users.get?user_ids={$user_id}&access_token={$token}&v=5.0")); 
       
-      file_get_contents('https://api.vk.com/methods/messages.send?' . http_build_query($request_params));
-      return 'ok';
-      break;
+      //и извлекаем из ответа его имя 
+      $user_name = $user_info->response[0]->first_name; 
+      
+      //С помощью messages.send отправляем ответное сообщение 
+      $request_params = array( 
+      'message' => "Hello, {$user_name}!", 
+      'user_id' => $user_id, 
+      'access_token' => $token, 
+      'v' => '5.0' 
+      ); 
+      
+      $get_params = http_build_query($request_params); 
+      
+      file_get_contents('https://api.vk.com/method/messages.send?'. $get_params); 
+      
+      //Возвращаем "ok" серверу Callback API 
+      
+      echo('ok'); 
+      
+      break; 
   }
 
 
