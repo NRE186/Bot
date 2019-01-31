@@ -20,11 +20,8 @@ $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
   
   if( !data ) 
-    return "1";
-
-  if( $data->secret !== getenv('VK_SECRET') && $data->type !== 'comfirmation' )
-    return "2";
-
+    return;
+    
   switch( $data->type )
   {
     case 'confirmation':
@@ -43,9 +40,6 @@ $app->post('/bot', function() use($app) {
       return 'ok';
       break;
   }
-
-
-  return "3";
 });
 
 $app->run();
