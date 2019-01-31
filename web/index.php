@@ -38,7 +38,7 @@ $app->post('/bot', function() use($app) {
       );
 
       $message = 
-      "1 -  $thursday[0] <br/> 2 -  $thursday[1] <br/> 3 -  $thursday[2] <br/> 4 -  $thursday[3] \$";
+      '1 -  $thursday["first"] <br/> 2 -  $thursday[1] <br/> 3 -  $thursday[2] <br/> 4 -  $thursday[3] \$';
 
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
