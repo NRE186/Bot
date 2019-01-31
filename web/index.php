@@ -89,11 +89,7 @@ $app->post('/bot', function() use($app) {
 
       $string = mb_strtolower($data->object->text);
 
-      if($string == "расписание")
-      {
-        $message = $thursday;
-      }
-      else if((strpos($string, "понедельник") !== false) || (getdate("wday") == 0)){
+      if((strpos($string, "понедельник") !== false) || (getdate("wday") == 0)){
         $message = $monday;
       }
       else if((strpos($string, "вторник") !== false) || (getdate("wday") == 1)){
