@@ -30,15 +30,6 @@ $app->post('/bot', function() use($app) {
     case 'message_new':
       $message = 'Ошибка';
 
-      $thursday = array(
-        'first' => '- / Информатика У601 Назина Н.Б / -',
-        'second'    => 'Иностранный У507 Чеснокова Н.Е / - / Информатика У601 Назина Н.Б',
-        'third'    => 'Информатика У704 Назина Н.Б',
-        'fourth' => 'Информатика У601 Назина Н.Б / - / Иностранный У508 Кузнецова С.В'
-      );
-
-      $message = $thursday;
-
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
         'peer_id'    => $data->object->from_id,
