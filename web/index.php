@@ -38,7 +38,10 @@ $app->post('/bot', function() use($app) {
       );
 
       $message = 
-      "1 пара - " . $thursday[1] . "<br/> 2 - " . $thursday[2] . " <br/> 3 - " . $thursday[3] . " <br/> 4 - " . $thursday[4];
+      "1 пара - " . $thursday[1] . 
+      "2 пара - " . $thursday[2] . 
+      "3 пара - " . $thursday[3] . 
+      "4 пара - " . $thursday[4];
 
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
