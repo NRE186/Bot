@@ -93,22 +93,22 @@ $app->post('/bot', function() use($app) {
       {
         $message = $thursday;
       }
-      else if(strpos($string, "понедельник") !== false){
+      else if((strpos($string, "понедельник" !== false) || (date("w") == 0)){
         $message = $monday;
       }
-      else if(strpos($string, "вторник") !== false){
+      else if((strpos($string, "вторник") !== false) || (date("w") == 1)){
         $message = $tuesday;
       }
-      else if(strpos($string, "среда") !== false){
+      else if((strpos($string, "среда") !== false) || (date("w") == 2)){
         $message = $wednesday;
       }
-      else if(strpos($string, "четверг") !== false){
+      else if((strpos($string, "четверг") !== false) || (date("w") == 3)){
         $message = $thursday;
       }
-      else if(strpos($string, "пятница") !== false){
+      else if((strpos($string, "пятница") !== false) || (date("w") == 4)){
         $message = $friday;
       }
-      else if(strpos($string, "суббота") !== false){
+      else if((strpos($string, "суббота") !== false) || (date("w") == 5)){
         $message = $saturday;
       }
       else if($string == "звонки"){
@@ -121,8 +121,7 @@ $app->post('/bot', function() use($app) {
         $message = "Неизвестная команда! Список доступных команд : 
         Расписание - расписание на текущий день,
         Расписание на {день} - расписание на определенный день,
-        Звонки - расписание звонков,
-        Расписание на всю неделю,
+        Звонки - расписание звонков,,
         Список команд ";
       }
       
