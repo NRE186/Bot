@@ -19,17 +19,18 @@ $app->get('/', function() use($app) {
 $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
   
-  if(!data) 
+  if( !data ) 
     return "1";
 
-  if($data->secret !== getenv('VK_SECRET') && $data->type !== 'comfirmation' )
+  if( $data->secret !== getenv('VK_SECRET') && $data->type !== 'comfirmation' )
     return "2";
 
-  switch($data->type)
+  switch( $data->type )
   {
     case 'comfirmation': 
-      return getenv('VK_SECRET');
+      return getenv('VK_CONFIRM');
       break;
+    
     case 'message_new': 
 
       break;
