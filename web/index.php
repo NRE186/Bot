@@ -128,7 +128,7 @@ $app->post('/bot', function() use($app) {
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
         'peer_id'    => $data->object->from_id,
-        'message'    => getdate("wday"),
+        'message'    => date("w"),
         'access_token' => getenv('VK_TOKEN'),
         'v' => '5.92'
       );
