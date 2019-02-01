@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Asia/Yekaterinburg');
+
 require('../vendor/autoload.php');
 
 $app = new Silex\Application();
