@@ -83,8 +83,8 @@ $app->post('/bot', function() use($app) {
   
   $users = array(104268893);
 
-  if(strtotime(date('H:i:s')) == strtotime("12:34:05")){
-    $message = "Следующая пара -> Безопастность жизнедеятельности А436 ";
+  if(strtotime(date('H:i:s')) == strtotime("12:37:05")){
+    $message = "sgdfsdg";
     foreach($users as $value){
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
@@ -96,7 +96,6 @@ $app->post('/bot', function() use($app) {
     
       file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
       return 'ok';
-      break;
     }
   }
   switch( $data->type )
