@@ -83,7 +83,7 @@ $app->post('/bot', function() use($app) {
   
   $users = array(104268893);
 
-  if(strtotime(date('H:i')) == strtotime("12:30")){
+  if(strtotime(date('H:i:s')) == strtotime("12:34:05")){
     $message = "Следующая пара -> Безопастность жизнедеятельности А436 ";
     foreach($users as $value){
       $request_params = array(
