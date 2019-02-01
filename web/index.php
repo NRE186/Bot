@@ -23,9 +23,7 @@ $app->post('/bot', function() use($app) {
   
   $users = array(104268893);
 
-  if( !data ) 
-    return;
-  if(date('H:i') == '12:20'){
+  if(strtotime(date('H:i')) == strtotime("12:26")){
     $message = "123";
     foreach($users as $value){
       $request_params = array(
