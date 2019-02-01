@@ -82,22 +82,6 @@ $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
   
   $users = array(104268893);
-
-  if(strtotime(date('H:i:s')) == strtotime("12:37:05")){
-    $message = "sgdfsdg";
-    foreach($users as $value){
-      $request_params = array(
-        'random_id' => rand(0, 100000000000000000),
-        'peer_id'    => $value,
-        'message'    => $message,
-        'access_token' => getenv('VK_TOKEN'),
-        'v' => '5.92'
-      );
-    
-      file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
-      return 'ok';
-    }
-  }
   switch( $data->type )
   {
     case 'confirmation':
