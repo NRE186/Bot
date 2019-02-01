@@ -89,26 +89,22 @@ $app->post('/bot', function() use($app) {
 
       $string = mb_strtolower($data->object->text);
 
-      if($string == "расписание")
-      {
-        $message = $thursday;
-      }
-      else if(strpos($string, "понедельник" !== false)){
+      if(strpos($string, "понедельник" !== false) || date("w") == 1){
         $message = $monday;
       }
-      else if(strpos($string, "вторник") !== false){
+      else if(strpos($string, "вторник" !== false) || date("w") == 2){
         $message = $tuesday;
       }
-      else if(strpos($string, "среду") !== false){
+      else if(strpos($string, "среду" !== false) || date("w") == 3){
         $message = $wednesday;
       }
-      else if(strpos($string, "четверг") !== false){
+      else if(strpos($string, "четверг" !== false) || date("w") == 4){
         $message = $thursday;
       }
-      else if(strpos($string, "пятницу") !== false){
+      else if(strpos($string, "пятницу" !== false) || date("w") == 5){
         $message = $friday;
       }
-      else if(strpos($string, "субботу") !== false){
+      else if(strpos($string, "субботу" !== false) || date("w") == 6){
         $message = $saturday;
       }
       else if($string == "звонки"){
@@ -128,7 +124,7 @@ $app->post('/bot', function() use($app) {
       $request_params = array(
         'random_id' => rand(0, 100000000000000000),
         'peer_id'    => $data->object->from_id,
-        'message'    => date("w"),
+        'message'    => $message,
         'access_token' => getenv('VK_TOKEN'),
         'v' => '5.92'
       );
