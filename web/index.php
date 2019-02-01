@@ -21,19 +21,20 @@ $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
   
   $users = array(104268893);
-  if(strtotime(date('H:i')) == strtotime("12:52")){	
+  if(strtotime(date('H:i')) == strtotime("12:54")){	
     foreach($users as $val){	
       $request_params = array(	
         'random_id' => rand(0, 100000000000000000),	
         'peer_id'    => $value,	
-        'message'    => $monday,	
+        'message'    => 'af',	
         'access_token' => getenv('VK_TOKEN'),	
         'v' => '5.92'	
       );	
     	
       file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));	
       return 'ok';	
-    }	
+    }
+    break;
   }
 
   switch( $data->type )
