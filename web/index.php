@@ -89,22 +89,43 @@ $app->post('/bot', function() use($app) {
 
       $string = mb_strtolower($data->object->text);
 
-      if((strpos($string, "понедельник" !== false)) ||( date("w") == 1)){
+      if($string == "расписание")
+      {
+        if(date("w") == 1){
+          $message = $monday;
+        }
+        else if(date("w") == 2){
+          $message = $tuesday;
+        }
+        else if(date("w") == 3){
+          $message = $wednesday;
+        }
+        else if(date("w") == 4){
+          $message = $thursday;
+        }
+        else if(date("w") == 5){
+          $message = $friday;
+        }
+        else if(date("w") ==6){
+          $message = $saturday;
+        }
+      }
+      else if(strpos($string, "понедельник") !== false){
         $message = $monday;
       }
-      else if((strpos($string, "вторник" !== false)) || (date("w") == 2)){
+      else if(strpos($string, "вторник") !== false){
         $message = $tuesday;
       }
-      else if((strpos($string, "среду" !== false)) || (date("w") == 3)){
+      else if(strpos($string, "среду") !== false){
         $message = $wednesday;
       }
-      else if((strpos($string, "четверг" !== false)) || (date("w") == 4)){
+      else if(strpos($string, "четверг") !== false){
         $message = $thursday;
       }
-      else if((strpos($string, "пятницу" !== false)) || (date("w") == 5)){
+      else if(strpos($string, "пятницу") !== false){
         $message = $friday;
       }
-      else if((strpos($string, "субботу" !== false)) || (date("w") == 6)){
+      else if(strpos($string, "субботу") !== false){
         $message = $saturday;
       }
       else if($string == "звонки"){
