@@ -13,7 +13,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 ));
 
 $app->get('/', function() use($app) {
-  return 'Nichao';
+  return mb_convert_encoding('ok', "ASCII");
 });
 
 $app->post('/bot', function() use($app) {
@@ -24,6 +24,7 @@ $app->post('/bot', function() use($app) {
   {
     case 'confirmation':
       return getenv('VK_CONFIRM');
+      return mb_convert_encoding('ok', "ASCII");
       break;
     case 'message_new':
       
@@ -153,7 +154,7 @@ $app->post('/bot', function() use($app) {
       );
     
       file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
-      return 'ok';
+      return mb_convert_encoding('ok', "ASCII");
       break;
   }
 });
