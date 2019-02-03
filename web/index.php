@@ -151,7 +151,7 @@ $app->post('/bot', function() use($app) {
         $message = $commands;
       }
       else if($string == "время"){
-        $message = date('H:i:s')
+        $message = date('H:i:s');
       }
       else{
         $message = "Неизвестная команда! Список доступных команд : 
