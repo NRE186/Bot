@@ -91,7 +91,7 @@ $app->post('/bot', function() use($app) {
 
       if($string == "расписание")
       {
-        if(date("w") == 1){
+        if(date("w") == 1 || date("w") == 0){
           $message = $monday;
         }
         else if(date("w") == 2){
