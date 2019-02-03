@@ -18,23 +18,6 @@ $app->get('/', function() use($app) {
 
 $app->post('/bot', function() use($app) {
 
-  $x = 0;
-
-  if(strtotime(date('H:i')) == strtotime('18:49') && $x == 0){
-    $message = date('H:i:s');
-    $request_params = array(
-      'random_id' => rand(0, 100000000000000000),
-      'peer_id'    => '104268893',
-      'message'    => $message,
-      'access_token' => getenv('VK_TOKEN'),
-      'v' => '5.92'
-    );
-  
-    file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
-    return 'ok';
-    $x = 1;
-  }
-
   $data = json_decode(file_get_contents('php://input'));
   
   switch( $data->type )
@@ -170,6 +153,24 @@ $app->post('/bot', function() use($app) {
       );
     
       file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
+      return 'ok';
+      break;
+      
+      case 'message_reply':
+      $x = 0;
+      if(strtotime(date('H:i')) == strtotime('18:52') && $x === 0){
+        $message = date('H:i:s');
+        $request_params = array(
+          'random_id' => rand(0, 100000000000000000),
+          'peer_id'    => '104268893',
+          'message'    => $message,
+          'access_token' => getenv('VK_TOKEN'),
+          'v' => '5.92'
+        );
+        $x = 1;
+        file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
+        return 'ok';
+      }
       return 'ok';
       break;
   }
