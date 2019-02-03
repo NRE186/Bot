@@ -21,7 +21,7 @@ $app->post('/bot', function() use($app) {
 
   $x = 0;
 
-  if(strtotime(date('H:i')) == strtotime('18:23') && $x == 0){
+  if(strtotime(date('H:i')) == strtotime('18:45') && $x == 0){
     $message = date('H:i:s');
     $request_params = array(
       'random_id' => rand(0, 100000000000000000),
