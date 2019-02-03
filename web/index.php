@@ -20,7 +20,7 @@ $app->get('/', function() use($app) {
 $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
 
-  if(date('H:i:s') == strtotime('18:10:00')){
+  if(strtotime(date('H:i:s')) == strtotime('18:18:00')){
 
     $message = date('H:i:s');
 
