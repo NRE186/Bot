@@ -158,7 +158,7 @@ $app->post('/bot', function() use($app) {
       
       case 'message_reply':
       $x = 0;
-      if(strtotime(date('H:i')) == strtotime('18:52') && $x === 0){
+      if(strtotime(date('H:i')) == strtotime('18:55') && $x === 0){
         $message = date('H:i:s');
         $request_params = array(
           'random_id' => rand(0, 100000000000000000),
@@ -169,7 +169,6 @@ $app->post('/bot', function() use($app) {
         );
         $x = 1;
         file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
-        return 'ok';
       }
       return 'ok';
       break;
