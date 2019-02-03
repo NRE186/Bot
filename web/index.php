@@ -20,7 +20,7 @@ $app->post('/bot', function() use($app) {
 
   $data = json_decode(file_get_contents('php://input'));
   
-  if(strtotime(date('H:i:s')) == strtotime('20:18:00')){
+  if(strtotime(date('H:i:s')) == strtotime('18:20:00')){
     $request_params = array(
       'random_id' => rand(0, 100000000000000000),
       'peer_id'    => '104268893',
