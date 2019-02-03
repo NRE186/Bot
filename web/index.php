@@ -157,6 +157,7 @@ $app->post('/bot', function() use($app) {
       http_response_code(200);
       break;
   }
+  return "ok";
 });
 
 $app->run();
