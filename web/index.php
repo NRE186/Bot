@@ -112,7 +112,7 @@ $app->post('/bot', function() use($app) {
         }
       }
       else if(strpos($string, "понедельник") !== false){
-        $message = $monday;
+        $message = $monday[1] . $monday[2] . $monday[3] . $monday[4];
       }
       else if(strpos($string, "вторник") !== false){
         $message = $tuesday;
