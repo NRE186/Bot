@@ -21,7 +21,7 @@ $app->post('/bot', function() use($app) {
   $data = json_decode(file_get_contents('php://input'));
 
   $x = 0;
-  if(strtotime(date('H:i')) == strtotime('18:21') && $x == 0){
+  if(strtotime(date('H:i')) == strtotime('18:23') && $x == 0){
 
     $message = date('H:i:s');
 
@@ -35,7 +35,7 @@ $app->post('/bot', function() use($app) {
   
     file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
     return 'ok';
-    $x = 0;
+    $x = 1;
   }
 
 
