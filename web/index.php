@@ -28,8 +28,6 @@ $app->post('/bot', function() use($app) {
   );
 
   $test = json_decode(file_get_contents('https://api.vk.com/method/messages.getConversations?' . http_build_query($request_params)));
-  return "ok";
-  http_response_code(200);
 
   $data = json_decode(file_get_contents('php://input'));
 
