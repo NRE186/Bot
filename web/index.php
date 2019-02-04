@@ -148,7 +148,7 @@ $app->post('/bot', function() use($app) {
         $message = $commands;
       }
       else if($string == "тест"){
-        $message = $test->count;
+        $message = $test;
       }
       else if($string == "время"){
         $message = date('H:i:s');
