@@ -18,7 +18,21 @@ $app->get('/', function() use($app) {
 
 $app->post('/bot', function() use($app) {
 
+  $request_params = array(
+    'offset' => '0',
+    'count'    => '23',
+    'filter'    => 'all',
+    'group_id' => '177552157',
+    'access_token' => getenv('VK_TOKEN'),
+    'v' => '5.92'
+  );
+
+  $test = json_decode(file_get_contents('https://api.vk.com/method/messages.getConversations?' . http_build_query($request_params)));
+  return "ok";
+  http_response_code(200);
+
   $data = json_decode(file_get_contents('php://input'));
+
   switch( $data->type )
   {
     case 'confirmation':
@@ -135,6 +149,9 @@ $app->post('/bot', function() use($app) {
       else if($string == "список команд"){
         $message = $commands;
       }
+      else if($string == "тест"){
+        $message = $test->count;
+      }
       else if($string == "время"){
         $message = date('H:i:s');
       }
@@ -158,25 +175,6 @@ $app->post('/bot', function() use($app) {
       file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
       return "ok";
       http_response_code(200);
-      break;
-
-      case 'message_reply' : 
-
-      $x = 0;
-      if(strtotime(date('H:i')) == strtotime('20:34') && $x == 0){
-        $request_params = array(
-          'random_id' => rand(0, 100000000000000000),
-          'peer_id'    => '104268893',
-          'message'    => 'Тест',
-          'access_token' => getenv('VK_TOKEN'),
-          'v' => '5.92'
-        );
-      
-        file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
-        $x = 1;
-        return "ok";
-        http_response_code(200);
-      }
       break;
   }
   return "ok";
