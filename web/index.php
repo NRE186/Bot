@@ -139,6 +139,14 @@ $app->post('/bot', function() use($app) {
       else if($string == "время"){
         $message = date('H:i:s');
       }
+      else if($string == "+"){
+        if(strtotime(date('H:i:s')) == strtotime('20:05:10')){
+          $message ='Вторник <br>' . $tuesday[1] . $tuesday[2] . $tuesday[3] . $tuesday[4];
+        }
+        if(strtotime(date('H:i:s')) == strtotime('20:05:37')){
+          $message = 'Следующая пара ->' . $tuesday[2];
+        }
+      }
       else{
         $message = "Неизвестная команда! Список доступных команд : 
         Расписание - расписание на текущий день,
