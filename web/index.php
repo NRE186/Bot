@@ -18,17 +18,6 @@ $app->get('/', function() use($app) {
 
 $app->post('/bot', function() use($app) {
 
-  $request_params = array(
-    'offset' => '0',
-    'count'    => '23',
-    'filter'    => 'all',
-    'group_id' => '177552157',
-    'access_token' => getenv('VK_TOKEN'),
-    'v' => '5.92'
-  );
-
-  $test = json_decode(file_get_contents('https://api.vk.com/method/messages.getConversations?' . http_build_query($request_params)));
-
   $data = json_decode(file_get_contents('php://input'));
 
   switch( $data->type )
@@ -146,9 +135,6 @@ $app->post('/bot', function() use($app) {
       }
       else if($string == "список команд"){
         $message = $commands;
-      }
-      else if($string == "тест"){
-        $message = $test;
       }
       else if($string == "время"){
         $message = date('H:i:s');
