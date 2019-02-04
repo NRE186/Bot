@@ -18,6 +18,21 @@ $app->get('/', function() use($app) {
 
 $app->post('/bot', function() use($app) {
 
+  if(strtotime(date('H:i')) == strtotime('17:06')){
+    $request_params = array(
+      'random_id' => rand(0, 100000000000000000),
+      'peer_id'    => $data->object->from_id,
+      'message'    => date('H:i:s'),
+      'access_token' => getenv('VK_TOKEN'),
+      'v' => '5.92'
+    );
+  
+    file_get_contents('https://api.vk.com/method/messages.send?' . http_build_query($request_params));
+    return "ok";
+    http_response_code(200);
+  }
+
+
   $data = json_decode(file_get_contents('php://input'));
 
   switch( $data->type )
